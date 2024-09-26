@@ -41,7 +41,7 @@ const TodoApp = () => {
 
     return (
         <div>
-            <h1>Todo List.</h1>
+            <h1>Todo List</h1>
             <AddTodo addTodo={addTodo} />
             <Filter setFilter={setFilter} />
             <ul>
