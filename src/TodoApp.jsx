@@ -10,7 +10,7 @@ const TodoApp = () => {
 
     useEffect(() => {
         const fetchTodos = async () => {
-            const response = await axios.get('http://localhost:5003/api/todos');
+            const response = await axios.get('https://backend-todo-theta.vercel.app/api/todos');
             setTodos(response.data);
         };
         fetchTodos();
@@ -18,18 +18,18 @@ const TodoApp = () => {
 
     const addTodo = async (text) => {
         const newTodo = { text, completed: false, userId: 5 }; // Modify userId as needed
-        const response = await axios.post('http://localhost:5003/api/todos', newTodo);
+        const response = await axios.post('https://backend-todo-theta.vercel.app/api/todos', newTodo);
         setTodos([...todos, response.data]);
     };
 
     const toggleComplete = async (id) => {
         const todo = todos.find(todo => todo._id === id);
-        await axios.put(`http://localhost:5003/api/todos/${id}`, { completed: !todo.completed });
+        await axios.put(`https://backend-todo-theta.vercel.app/api/todos/${id}`, { completed: !todo.completed });
         setTodos(todos.map(todo => (todo._id === id ? { ...todo, completed: !todo.completed } : todo)));
     };
 
     const deleteTodo = async (id) => {
-        await axios.delete(`http://localhost:5003/api/todos/${id}`);
+        await axios.delete(`https://backend-todo-theta.vercel.app/api/todos/${id}`);
         setTodos(todos.filter(todo => todo._id !== id));
     };
 
